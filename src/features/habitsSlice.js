@@ -15,12 +15,9 @@ const habitsFromStorage = localStorage.getItem('newHabits')
   ? JSON.parse(localStorage.getItem('newHabits'))
   : [{ title: 'early bird', description: 'wake up at 3:45am', details }]
 
-let habits = [...habitsFromStorage]
-
 const initialState = {
-  habits: habits,
+  habits: habitsFromStorage,
 }
-
 
 // habitsSlice contains store, actions and reducers
 const habitsSlice = createSlice({
@@ -29,12 +26,11 @@ const habitsSlice = createSlice({
   reducers: {
     addHabit: (state, { payload }) => {
       state.habits = [...state.habits, payload]
-      habits = [...habits, payload]
-      window.localStorage.setItem('newHabits', JSON.stringify(habits))
+      localStorage.setItem('newHabits', JSON.stringify(state.habits))
     },
     deleteHabit: (state, action) => {
       state.habits = state.habits.filter((habit) => habit.title !== action.payload)
-      window.localStorage.setItem('newHabits', JSON.stringify(state.habits))
+      localStorage.setItem('newHabits', JSON.stringify(state.habits))
     },
     changeStatus: (state, { payload }) => {
       state.habits.forEach((habit) => {
@@ -46,12 +42,10 @@ const habitsSlice = createSlice({
           })
         }
       })
-      window.localStorage.setItem('newHabits', JSON.stringify(state.habits))
+      localStorage.setItem('newHabits', JSON.stringify(state.habits))
     },
   },
 })
-
-console.log(habitsSlice)
 
 export const { addHabit, deleteHabit, changeStatus } = habitsSlice.actions
 

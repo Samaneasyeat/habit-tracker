@@ -10,9 +10,14 @@ const CreateHabit = (props) => {
   const [description, setDescription] = useState('')
 
   // handle new habits
-  const AddHabitHandler = () => {
-    dispatch(addHabit({ title, description, details }))
-    props.onHide()
+  const AddHabitHandler = (e) => {
+    e.preventDefault()
+    if (title.trim() && description.trim()) {
+      dispatch(addHabit({ title: title.trim(), description: description.trim(), details }))
+      setTitle('')
+      setDescription('')
+      props.onHide()
+    }
   }
 
   return (
@@ -20,7 +25,7 @@ const CreateHabit = (props) => {
     <Modal {...props} size='sm' aria-labelledby='contained-modal-title-vcenter' centered>
       <Modal.Dialog className='modal-sm'>
         <Modal.Body>
-          <Form onSubmit={() => AddHabitHandler}>
+          <Form onSubmit={AddHabitHandler}>
             <Form.Group controlId='title'>
               <Form.Label>Habit Title</Form.Label>
               <Form.Control
@@ -38,11 +43,12 @@ const CreateHabit = (props) => {
                 type='text'
                 placeholder='short description'
                 value={description}
+                required={true}
                 onChange={(e) => setDescription(e.target.value)}></Form.Control>
             </Form.Group>
 
             <Modal.Footer>
-              <Button onClick={() => AddHabitHandler()}>Add Habit</Button>
+              <Button type="submit">Add Habit</Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>

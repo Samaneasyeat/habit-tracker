@@ -1,13 +1,17 @@
 import Header from './components/Header'
 import Overview from './components/Overview'
 import HabitDisplay from './components/HabitDisplay'
+import DebugInfo from './components/DebugInfo'
 
 import { Row, Col, Container } from 'react-bootstrap'
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 import Typed from 'typed.js'
 
 function App() {
+  const { habits } = useSelector((state) => state.allHabits)
+
   // code for typed.js library
   useEffect(() => {
     const typed = new Typed('.tag', {
@@ -32,8 +36,14 @@ function App() {
     }
   }, [])
 
+  // Debug logging
+  useEffect(() => {
+    console.log('Current habits:', habits)
+  }, [habits])
+
   return (
     <>
+      <DebugInfo />
       <Header />
       <Container>
         <Row className='mt-5'>
