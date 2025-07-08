@@ -56,9 +56,11 @@ function App() {
             <HabitDisplay />
           </Col>
         </Row>
-        <h4 className='text-light d-flex  mt-5  justify-content-center'>
-          <span className='tag'></span>
-        </h4>
+        <div className='typed-container'>
+          <h4 className='text-light d-flex justify-content-center'>
+            <span className='tag'></span>
+          </h4>
+        </div>
       </Container>
     </>
   )

@@ -1,14 +1,13 @@
-import { Nav, Container } from 'react-bootstrap'
+import { Navbar } from 'react-bootstrap'
 
 const Header = () => {
-  const date = new Date()
   return (
-    <Nav className='bg-primary p-2 background'>
-      <Container className='d-flex justify-content-between align-items-center'>
-        <h3 className='fw-bold'>Ninja Habits</h3>
-        <span>{date.toDateString()}</span>
-      </Container>
-    </Nav>
+    <Navbar className='header-container' bg='dark' variant='dark'>
+      <Navbar.Brand href='#home'>
+        <i className='fa-solid fa-calendar-check me-2'></i>
+        Loop Habit Tracker
+      </Navbar.Brand>
+    </Navbar>
   )
 }
 
