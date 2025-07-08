@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/habit-tracker/static/css/main.ed54d6c1.css",
+    "main.js": "/habit-tracker/static/js/main.24909869.js",
+    "static/media/moon.jpg": "/habit-tracker/static/media/moon.4488438a200a4c9fd44f.jpg",
+    "index.html": "/habit-tracker/index.html",
+    "main.ed54d6c1.css.map": "/habit-tracker/static/css/main.ed54d6c1.css.map",
+    "main.24909869.js.map": "/habit-tracker/static/js/main.24909869.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed54d6c1.css",
+    "static/js/main.24909869.js"
+  ]
+}
